@@ -4,28 +4,22 @@
 
 function calculateBMI() {
 
-    let age = parseFloat(document.getElementById("bmiAge").value);
-    let weight = parseFloat(document.getElementById("weight").value);
-    let height = parseFloat(document.getElementById("height").value);
-    let result = document.getElementById("result");
+    const age = parseFloat(document.getElementById("bmiAge").value);
+    const weight = parseFloat(document.getElementById("weight").value);
+    const heightCm = parseFloat(document.getElementById("height").value);
+    const result = document.getElementById("result");
 
-    if (isNaN(age) || isNaN(weight) || isNaN(height)) {
+    if (isNaN(age) || isNaN(weight) || isNaN(heightCm)) {
         result.innerHTML = "Please fill all fields correctly";
         result.style.color = "red";
-
-        result.classList.remove("show");
-        void result.offsetWidth;
-        result.classList.add("show");
+        animateResult(result);
         return;
     }
 
-    height = height / 100;
-    let bmi = weight / (height * height);
-    bmi = bmi.toFixed(2);
+    const height = heightCm / 100;
+    const bmi = (weight / (height * height)).toFixed(2);
 
-    let message = "";
-    let color = "";
-    let explanation = "";
+    let message, color, explanation;
 
     if (bmi < 18.5) {
         message = "Underweight";
@@ -49,15 +43,12 @@ function calculateBMI() {
     }
 
     result.innerHTML =
-        "Age: " + age + "<br>" +
-        "Your BMI is " + bmi + " (" + message + ")<br>" +
-        explanation;
+        `Age: ${age}<br>
+         Your BMI is ${bmi} (${message})<br>
+         ${explanation}`;
 
     result.style.color = color;
-
-    result.classList.remove("show");
-    void result.offsetWidth;
-    result.classList.add("show");
+    animateResult(result);
 }
 
 
@@ -67,19 +58,16 @@ function calculateBMI() {
 
 function calculateCalories() {
 
-    let age = parseFloat(document.getElementById("age").value);
-    let weight = parseFloat(document.getElementById("calWeight").value);
-    let height = parseFloat(document.getElementById("calHeight").value);
-    let gender = document.getElementById("gender").value;
-    let result = document.getElementById("calorieResult");
+    const age = parseFloat(document.getElementById("age").value);
+    const weight = parseFloat(document.getElementById("calWeight").value);
+    const height = parseFloat(document.getElementById("calHeight").value);
+    const gender = document.getElementById("gender").value;
+    const result = document.getElementById("calorieResult");
 
     if (isNaN(age) || isNaN(weight) || isNaN(height) || gender === "") {
         result.innerHTML = "Please fill all fields correctly";
         result.style.color = "red";
-
-        result.classList.remove("show");
-        void result.offsetWidth;
-        result.classList.add("show");
+        animateResult(result);
         return;
     }
 
@@ -92,13 +80,21 @@ function calculateCalories() {
     }
 
     result.innerHTML =
-        "Your estimated daily calorie need is " + Math.round(bmr) + " kcal";
+        `Your estimated daily calorie need is ${Math.round(bmr)} kcal`;
 
     result.style.color = "#2e7d32";
+    animateResult(result);
+}
 
-    result.classList.remove("show");
-    void result.offsetWidth;
-    result.classList.add("show");
+
+/* =========================
+   RESULT ANIMATION
+========================= */
+
+function animateResult(element) {
+    element.classList.remove("show");
+    void element.offsetWidth;
+    element.classList.add("show");
 }
 
 
@@ -107,10 +103,8 @@ function calculateCalories() {
 ========================= */
 
 function openPlan(title, text) {
-
     document.getElementById("modalTitle").innerText = title;
     document.getElementById("modalText").innerText = text;
-
     document.getElementById("planModal").style.display = "flex";
 }
 
@@ -118,10 +112,8 @@ function closeModal() {
     document.getElementById("planModal").style.display = "none";
 }
 
-
-/* Close modal when clicking outside */
 window.onclick = function(event) {
-    let modal = document.getElementById("planModal");
+    const modal = document.getElementById("planModal");
     if (event.target === modal) {
         modal.style.display = "none";
     }
