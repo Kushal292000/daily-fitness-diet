@@ -1,10 +1,17 @@
+/* =========================
+   GLOBAL STYLES
+========================= */
+
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     background: #f4fce9;
+    color: #333;
 }
 
-/* ================= HEADER ================= */
+/* =========================
+   HEADER
+========================= */
 
 header {
     display: flex;
@@ -29,9 +36,16 @@ nav a {
     color: #333;
     margin-left: 20px;
     font-weight: 500;
+    transition: 0.3s;
 }
 
-/* ================= HERO ================= */
+nav a:hover {
+    color: #2e7d32;
+}
+
+/* =========================
+   HERO SECTION
+========================= */
 
 .hero {
     display: flex;
@@ -51,7 +65,6 @@ nav a {
 }
 
 .hero-left p {
-    color: #444;
     margin: 20px 0;
 }
 
@@ -60,75 +73,94 @@ nav a {
     background: #2e7d32;
     color: white;
     border: none;
-    font-weight: bold;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.hero-left button:hover {
+    background: #1b5e20;
+    transform: scale(1.05);
 }
 
 .hero-right img {
     width: 350px;
-    border-radius: 10px;
+    border-radius: 12px;
 }
 
-/* ================= BMI SECTION ================= */
+/* =========================
+   BMI & CALORIE SECTION
+========================= */
 
-.bmi-section {
+.bmi-section,
+.calorie-section {
+    padding: 80px 20px;
     text-align: center;
-    padding: 60px;
-    background: white;
+    background: linear-gradient(to right, #e8f5e9, #f1f8e9);
 }
 
-.bmi-box input {
-    padding: 10px;
+.bmi-box,
+.calorie-box {
+    margin-top: 30px;
+}
+
+.bmi-box input,
+.calorie-box input,
+.calorie-box select {
+    padding: 12px;
     margin: 10px;
-    width: 200px;
+    width: 220px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    transition: 0.3s;
 }
 
-.bmi-box button {
-    padding: 10px 20px;
+.bmi-box input:focus,
+.calorie-box input:focus,
+.calorie-box select:focus {
+    border-color: #4caf50;
+    outline: none;
+    box-shadow: 0 0 10px rgba(76, 175, 80, 0.3);
+}
+
+.bmi-box button,
+.calorie-box button {
+    padding: 12px 25px;
     background: #2e7d32;
     color: white;
     border: none;
+    border-radius: 10px;
     cursor: pointer;
+    transition: 0.3s;
 }
 
-#result {
-    margin-top: 20px;
-    font-weight: bold;
-}
-
-/* ================= CALORIE SECTION ================= */
-
-.calorie-section {
-    text-align: center;
-    padding: 60px;
-    background: #f0fdf4;
-}
-
-.calorie-box input,
-.calorie-box select {
-    padding: 10px;
-    margin: 10px;
-    width: 200px;
-}
-
-.calorie-box button {
-    padding: 10px 20px;
+.bmi-box button:hover,
+.calorie-box button:hover {
     background: #1b5e20;
-    color: white;
-    border: none;
-    cursor: pointer;
+    transform: scale(1.05);
 }
 
-#calorieResult {
+/* RESULT ANIMATION */
+
+.result-box {
     margin-top: 20px;
     font-weight: bold;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: 0.4s ease;
 }
 
-/* ================= PROGRAMS SECTION ================= */
+.result-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* =========================
+   PROGRAMS SECTION
+========================= */
 
 .programs-section {
-    padding: 60px;
+    padding: 80px 20px;
     text-align: center;
     background: white;
 }
@@ -148,13 +180,13 @@ nav a {
     background: #f4fce9;
     padding: 30px;
     width: 280px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
     transition: 0.3s;
 }
 
 .program-card:hover {
-    transform: translateY(-8px);
+    transform: translateY(-10px);
 }
 
 .program-card h3 {
@@ -172,11 +204,19 @@ nav a {
     background: #2e7d32;
     color: white;
     border: none;
+    border-radius: 8px;
     cursor: pointer;
-    border-radius: 5px;
+    transition: 0.3s;
 }
 
-/* ================= FOOTER ================= */
+.program-card button:hover {
+    background: #1b5e20;
+    transform: scale(1.05);
+}
+
+/* =========================
+   FOOTER
+========================= */
 
 footer {
     text-align: center;
@@ -185,7 +225,9 @@ footer {
     color: white;
 }
 
-/* ================= MOBILE RESPONSIVE ================= */
+/* =========================
+   MOBILE RESPONSIVE
+========================= */
 
 @media (max-width: 768px) {
 
@@ -205,17 +247,10 @@ footer {
     }
 
     .hero {
-        display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         padding: 30px;
         text-align: center;
         background: #dcedc8;
-    }
-
-    .hero-left {
-        max-width: 100%;
     }
 
     .hero-left h1 {
@@ -230,11 +265,7 @@ footer {
 
     .bmi-box input,
     .calorie-box input,
-    .calorie-box select {
-        width: 90%;
-        max-width: 300px;
-    }
-
+    .calorie-box select,
     .bmi-box button,
     .calorie-box button {
         width: 90%;
