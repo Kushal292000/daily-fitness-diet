@@ -4,14 +4,17 @@
 
 function calculateBMI() {
 
-    let age = document.getElementById("bmiAge").value;
-    let weight = document.getElementById("weight").value;
-    let height = document.getElementById("height").value;
+    let age = parseFloat(document.getElementById("bmiAge").value);
+    let weight = parseFloat(document.getElementById("weight").value);
+    let height = parseFloat(document.getElementById("height").value);
     let result = document.getElementById("result");
 
-    if (age === "" || weight === "" || height === "") {
-        result.innerHTML = "Please fill all fields";
+    if (isNaN(age) || isNaN(weight) || isNaN(height)) {
+        result.innerHTML = "Please fill all fields correctly";
         result.style.color = "red";
+
+        result.classList.remove("show");
+        void result.offsetWidth;
         result.classList.add("show");
         return;
     }
@@ -31,7 +34,7 @@ function calculateBMI() {
     } 
     else if (bmi < 24.9) {
         message = "Normal Weight";
-        color = "green";
+        color = "#2e7d32";
         explanation = "Great job! Maintain your healthy lifestyle.";
     } 
     else if (bmi < 29.9) {
@@ -52,7 +55,6 @@ function calculateBMI() {
 
     result.style.color = color;
 
-    // Animation restart
     result.classList.remove("show");
     void result.offsetWidth;
     result.classList.add("show");
@@ -74,6 +76,7 @@ function calculateCalories() {
     if (isNaN(age) || isNaN(weight) || isNaN(height) || gender === "") {
         result.innerHTML = "Please fill all fields correctly";
         result.style.color = "red";
+
         result.classList.remove("show");
         void result.offsetWidth;
         result.classList.add("show");
@@ -97,27 +100,6 @@ function calculateCalories() {
     void result.offsetWidth;
     result.classList.add("show");
 }
-        return;
-    }
-
-    let bmr;
-
-    if (gender === "male") {
-        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-    } else {
-        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
-    }
-
-    result.innerHTML =
-        "Your estimated daily calorie need is " + Math.round(bmr) + " kcal";
-
-    result.style.color = "green";
-
-    // Animation restart
-    result.classList.remove("show");
-    void result.offsetWidth;
-    result.classList.add("show");
-}
 
 
 /* =========================
@@ -137,7 +119,7 @@ function closeModal() {
 }
 
 
-/* Close modal if clicked outside */
+/* Close modal when clicking outside */
 window.onclick = function(event) {
     let modal = document.getElementById("planModal");
     if (event.target === modal) {
