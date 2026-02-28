@@ -9,16 +9,20 @@
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
     <div class="logo">Daily <span>Fitness</span></div>
     <nav>
         <a href="#">Home</a>
         <a href="#">Information</a>
+        <a href="#">Programs</a>
         <a href="#">Contacts</a>
     </nav>
 </header>
 
-<!-- HERO SECTION -->
+<!-- ================= HERO SECTION ================= -->
+
 <section class="hero">
     <div class="hero-left">
         <h1>HEALTHY FOOD</h1>
@@ -34,7 +38,8 @@
     </div>
 </section>
 
-<!-- BMI SECTION -->
+<!-- ================= BMI SECTION ================= -->
+
 <section class="bmi-section">
     <h2>Check Your BMI</h2>
 
@@ -47,7 +52,8 @@
     </div>
 </section>
 
-<!-- CALORIE CALCULATOR -->
+<!-- ================= CALORIE SECTION ================= -->
+
 <section class="calorie-section">
     <h2>Daily Calorie Calculator</h2>
 
@@ -63,10 +69,12 @@
         </select>
 
         <button onclick="calculateCalories()">Calculate Calories</button>
-        <p id="calorieResult"></p>
+        <p id="calorieResult" class="result-box"></p>
     </div>
 </section>
-<!-- PROGRAMS SECTION -->
+
+<!-- ================= PROGRAMS SECTION ================= -->
+
 <section class="programs-section">
     <h2>Our Fitness Programs</h2>
 
@@ -75,30 +83,52 @@
         <div class="program-card">
             <h3>Fat Loss Program</h3>
             <p>Structured diet plan and workout routine to help you burn fat and lose weight effectively.</p>
-            <button>View Plan</button>
+            <button onclick="openPlan(
+                'Fat Loss Program',
+                '• High protein diet\n• 30 min cardio daily\n• 8k steps minimum\n• Calorie deficit plan'
+            )">View Plan</button>
         </div>
 
         <div class="program-card">
             <h3>Muscle Gain Program</h3>
             <p>High protein diet and strength training guide for lean muscle growth.</p>
-            <button>View Plan</button>
+            <button onclick="openPlan(
+                'Muscle Gain Program',
+                '• Protein rich meals\n• Strength training 5 days/week\n• Progressive overload\n• Proper recovery sleep'
+            )">View Plan</button>
         </div>
 
         <div class="program-card">
             <h3>Maintenance Plan</h3>
             <p>Balanced lifestyle program to maintain your ideal body weight and fitness level.</p>
-            <button>View Plan</button>
+            <button onclick="openPlan(
+                'Maintenance Plan',
+                '• Balanced macros\n• 3-4 workout days\n• Active lifestyle\n• Weekly weight tracking'
+            )">View Plan</button>
         </div>
 
     </div>
 </section>
-<!-- FOOTER -->
+
+<!-- ================= MODAL POPUP ================= -->
+
+<div id="planModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <h3 id="modalTitle"></h3>
+        <p id="modalText"></p>
+    </div>
+</div>
+
+<!-- ================= FOOTER ================= -->
+
 <footer>
     <p>© 2026 Daily Fitness & Diet | Built by Kushal</p>
 </footer>
 
-<!-- SCRIPT FILE -->
-<script src="script.js?v=2"></script> 
+<!-- ================= SCRIPT ================= -->
+
+<script src="script.js"></script>
 
 </body>
 </html>
