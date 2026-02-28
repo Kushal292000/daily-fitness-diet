@@ -4,7 +4,8 @@ body {
     background: #f4fce9;
 }
 
-/* HEADER */
+/* ================= HEADER ================= */
+
 header {
     display: flex;
     justify-content: space-between;
@@ -30,7 +31,8 @@ nav a {
     font-weight: 500;
 }
 
-/* HERO */
+/* ================= HERO ================= */
+
 .hero {
     display: flex;
     justify-content: space-between;
@@ -68,7 +70,8 @@ nav a {
     border-radius: 10px;
 }
 
-/* BMI SECTION */
+/* ================= BMI SECTION ================= */
+
 .bmi-section {
     text-align: center;
     padding: 60px;
@@ -94,7 +97,8 @@ nav a {
     font-weight: bold;
 }
 
-/* CALORIE SECTION */
+/* ================= CALORIE SECTION ================= */
+
 .calorie-section {
     text-align: center;
     padding: 60px;
@@ -121,7 +125,59 @@ nav a {
     font-weight: bold;
 }
 
-/* FOOTER */
+/* ================= PROGRAMS SECTION ================= */
+
+.programs-section {
+    padding: 60px;
+    text-align: center;
+    background: white;
+}
+
+.programs-section h2 {
+    margin-bottom: 40px;
+}
+
+.programs-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+}
+
+.program-card {
+    background: #f4fce9;
+    padding: 30px;
+    width: 280px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+}
+
+.program-card h3 {
+    margin-bottom: 15px;
+    color: #2e7d32;
+}
+
+.program-card p {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.program-card button {
+    padding: 10px 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* ================= FOOTER ================= */
+
 footer {
     text-align: center;
     padding: 20px;
@@ -129,14 +185,11 @@ footer {
     color: white;
 }
 
- /* ========================= */
-/* MOBILE RESPONSIVE DESIGN */
-/* ========================= */
+/* ================= MOBILE RESPONSIVE ================= */
 
 @media (max-width: 768px) {
 
     header {
-        display: flex;
         flex-direction: column;
         text-align: center;
         padding: 15px;
@@ -151,7 +204,6 @@ footer {
         margin: 5px 10px;
     }
 
-    /* HERO SECTION FIXED */
     .hero {
         display: flex;
         flex-direction: column;
@@ -176,7 +228,6 @@ footer {
         margin-top: 20px;
     }
 
-    /* BMI SECTION */
     .bmi-box input,
     .calorie-box input,
     .calorie-box select {
@@ -188,5 +239,10 @@ footer {
     .calorie-box button {
         width: 90%;
         max-width: 300px;
+    }
+
+    .programs-container {
+        flex-direction: column;
+        align-items: center;
     }
 }
