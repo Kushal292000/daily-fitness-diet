@@ -1,9 +1,11 @@
 function calculateBMI() {
     let weight = document.getElementById("weight").value;
     let height = document.getElementById("height").value;
+    let result = document.getElementById("result");
 
     if (weight === "" || height === "") {
-        document.getElementById("result").innerHTML = "Please enter both values";
+        result.innerHTML = "Please enter both values";
+        result.style.color = "red";
         return;
     }
 
@@ -12,17 +14,32 @@ function calculateBMI() {
     bmi = bmi.toFixed(2);
 
     let message = "";
+    let color = "";
+    let explanation = "";
 
     if (bmi < 18.5) {
         message = "Underweight";
-    } else if (bmi < 24.9) {
+        color = "orange";
+        explanation = "You should increase healthy calorie intake.";
+    } 
+    else if (bmi < 24.9) {
         message = "Normal Weight";
-    } else if (bmi < 29.9) {
+        color = "green";
+        explanation = "Great job! Maintain your healthy lifestyle.";
+    } 
+    else if (bmi < 29.9) {
         message = "Overweight";
-    } else {
+        color = "orange";
+        explanation = "Try regular exercise and balanced diet.";
+    } 
+    else {
         message = "Obese";
+        color = "red";
+        explanation = "Consult a doctor and start controlled diet plan.";
     }
 
-    document.getElementById("result").innerHTML =
-        "Your BMI is " + bmi + " (" + message + ")";
+    result.innerHTML =
+        "Your BMI is " + bmi + " (" + message + ")<br>" + explanation;
+
+    result.style.color = color;
 }
