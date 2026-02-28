@@ -4,6 +4,7 @@ body {
     background: #f4fce9;
 }
 
+/* HEADER */
 header {
     display: flex;
     justify-content: space-between;
@@ -29,6 +30,7 @@ nav a {
     font-weight: 500;
 }
 
+/* HERO */
 .hero {
     display: flex;
     justify-content: space-between;
@@ -66,6 +68,60 @@ nav a {
     border-radius: 10px;
 }
 
+/* BMI SECTION */
+.bmi-section {
+    text-align: center;
+    padding: 60px;
+    background: white;
+}
+
+.bmi-box input {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.bmi-box button {
+    padding: 10px 20px;
+    background: #2e7d32;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#result {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* CALORIE SECTION */
+.calorie-section {
+    text-align: center;
+    padding: 60px;
+    background: #f0fdf4;
+}
+
+.calorie-box input,
+.calorie-box select {
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+}
+
+.calorie-box button {
+    padding: 10px 20px;
+    background: #1b5e20;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#calorieResult {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+/* FOOTER */
 footer {
     text-align: center;
     padding: 20px;
