@@ -65,16 +65,38 @@ function calculateBMI() {
 
 function calculateCalories() {
 
-    let age = document.getElementById("age").value;
-    let weight = document.getElementById("calWeight").value;
-    let height = document.getElementById("calHeight").value;
+    let age = parseFloat(document.getElementById("age").value);
+    let weight = parseFloat(document.getElementById("calWeight").value);
+    let height = parseFloat(document.getElementById("calHeight").value);
     let gender = document.getElementById("gender").value;
     let result = document.getElementById("calorieResult");
 
-    if (age === "" || weight === "" || height === "" || gender === "") {
-        result.innerHTML = "Please fill all fields";
+    if (isNaN(age) || isNaN(weight) || isNaN(height) || gender === "") {
+        result.innerHTML = "Please fill all fields correctly";
         result.style.color = "red";
+        result.classList.remove("show");
+        void result.offsetWidth;
         result.classList.add("show");
+        return;
+    }
+
+    let bmr;
+
+    if (gender === "male") {
+        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    result.innerHTML =
+        "Your estimated daily calorie need is " + Math.round(bmr) + " kcal";
+
+    result.style.color = "#2e7d32";
+
+    result.classList.remove("show");
+    void result.offsetWidth;
+    result.classList.add("show");
+}
         return;
     }
 
