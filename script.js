@@ -1,3 +1,4 @@
+// BMI CALCULATOR
 function calculateBMI() {
     let weight = document.getElementById("weight").value;
     let height = document.getElementById("height").value;
@@ -42,4 +43,33 @@ function calculateBMI() {
         "Your BMI is " + bmi + " (" + message + ")<br>" + explanation;
 
     result.style.color = color;
+}
+
+
+// CALORIE CALCULATOR
+function calculateCalories() {
+    let age = document.getElementById("age").value;
+    let weight = document.getElementById("calWeight").value;
+    let height = document.getElementById("calHeight").value;
+    let gender = document.getElementById("gender").value;
+    let result = document.getElementById("calorieResult");
+
+    if (age === "" || weight === "" || height === "" || gender === "") {
+        result.innerHTML = "Please fill all fields";
+        result.style.color = "red";
+        return;
+    }
+
+    let bmr;
+
+    if (gender === "male") {
+        bmr = 10 * weight + 6.25 * height - 5 * age + 5;
+    } else {
+        bmr = 10 * weight + 6.25 * height - 5 * age - 161;
+    }
+
+    result.innerHTML = 
+        "Your estimated daily calorie need is " + Math.round(bmr) + " kcal";
+
+    result.style.color = "green";
 }
