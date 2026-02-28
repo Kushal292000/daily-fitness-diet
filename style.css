@@ -128,3 +128,54 @@ footer {
     background: #1b5e20;
     color: white;
 }
+
+ /* ========================= */
+/* MOBILE RESPONSIVE DESIGN */
+/* ========================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    nav {
+        margin-top: 10px;
+    }
+
+    nav a {
+        display: inline-block;
+        margin: 5px 10px;
+    }
+
+    .hero {
+        flex-direction: column;
+        padding: 30px;
+        text-align: center;
+        background: #dcedc8;
+    }
+
+    .hero-right img {
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .hero-left h1 {
+        font-size: 32px;
+    }
+
+    .bmi-box input,
+    .calorie-box input,
+    .calorie-box select {
+        width: 90%;
+        max-width: 300px;
+    }
+
+    .bmi-box button,
+    .calorie-box button {
+        width: 90%;
+        max-width: 300px;
+    }
+}
