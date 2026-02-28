@@ -7,18 +7,23 @@ body {
     font-family: 'Segoe UI', sans-serif;
     background: #f4fce9;
     color: #333;
+    scroll-behavior: smooth;
 }
 
 /* =========================
-   HEADER
+   HEADER (Sticky)
 ========================= */
 
 header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 60px;
     background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
 .logo {
@@ -89,7 +94,7 @@ nav a:hover {
 }
 
 /* =========================
-   BMI & CALORIE SECTION
+   BMI & CALORIE SECTIONS
 ========================= */
 
 .bmi-section,
@@ -140,14 +145,24 @@ nav a:hover {
     transform: scale(1.05);
 }
 
-/* RESULT ANIMATION */
+button:active {
+    transform: scale(0.95);
+}
+
+/* =========================
+   RESULT CARD ANIMATION
+========================= */
 
 .result-box {
-    margin-top: 20px;
-    font-weight: bold;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 12px;
+    font-weight: 600;
+    background: white;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
     opacity: 0;
-    transform: translateY(10px);
-    transition: 0.4s ease;
+    transform: translateY(15px);
+    transition: all 0.4s ease;
 }
 
 .result-box.show {
@@ -212,6 +227,43 @@ nav a:hover {
 .program-card button:hover {
     background: #1b5e20;
     transform: scale(1.05);
+}
+
+/* =========================
+   MODAL POPUP
+========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+    position: relative;
+    animation: fadeIn 0.3s ease;
+}
+
+.close {
+    position: absolute;
+    right: 15px;
+    top: 10px;
+    cursor: pointer;
+    font-size: 22px;
+}
+
+@keyframes fadeIn {
+    from {transform: scale(0.8); opacity: 0;}
+    to {transform: scale(1); opacity: 1;}
 }
 
 /* =========================
