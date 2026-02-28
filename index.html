@@ -46,6 +46,26 @@
     </div>
 </section>
 
+<!-- CALORIE CALCULATOR -->
+<section class="calorie-section">
+    <h2>Daily Calorie Calculator</h2>
+
+    <div class="calorie-box">
+        <input type="number" id="age" placeholder="Enter age">
+        <input type="number" id="calWeight" placeholder="Enter weight (kg)">
+        <input type="number" id="calHeight" placeholder="Enter height (cm)">
+
+        <select id="gender">
+            <option value="">Select Gender</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <button onclick="calculateCalories()">Calculate Calories</button>
+        <p id="calorieResult"></p>
+    </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
     <p>© 2026 Daily Fitness & Diet | Built by Kushal</p>
