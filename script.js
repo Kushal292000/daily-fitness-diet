@@ -1,12 +1,18 @@
-// BMI CALCULATOR
+// ===============================
+// BMI CALCULATOR (WITH AGE + ANIMATION)
+// ===============================
+
 function calculateBMI() {
+
+    let age = document.getElementById("bmiAge").value;
     let weight = document.getElementById("weight").value;
     let height = document.getElementById("height").value;
     let result = document.getElementById("result");
 
-    if (weight === "" || height === "") {
-        result.innerHTML = "Please enter both values";
+    if (age === "" || weight === "" || height === "") {
+        result.innerHTML = "Please fill all fields";
         result.style.color = "red";
+        result.classList.add("show");
         return;
     }
 
@@ -16,38 +22,42 @@ function calculateBMI() {
 
     let message = "";
     let color = "";
-    let explanation = "";
 
     if (bmi < 18.5) {
         message = "Underweight";
-        color = "orange";
-        explanation = "You should increase healthy calorie intake.";
+        color = "#ff9800";
     } 
     else if (bmi < 24.9) {
         message = "Normal Weight";
-        color = "green";
-        explanation = "Great job! Maintain your healthy lifestyle.";
+        color = "#2e7d32";
     } 
     else if (bmi < 29.9) {
         message = "Overweight";
-        color = "orange";
-        explanation = "Try regular exercise and balanced diet.";
+        color = "#ff5722";
     } 
     else {
         message = "Obese";
-        color = "red";
-        explanation = "Consult a doctor and start controlled diet plan.";
+        color = "#d32f2f";
     }
 
     result.innerHTML =
-        "Your BMI is " + bmi + " (" + message + ")<br>" + explanation;
+        "Age: " + age + "<br> BMI: " + bmi + " (" + message + ")";
 
     result.style.color = color;
+
+    // Animation trigger
+    result.classList.remove("show");
+    void result.offsetWidth;
+    result.classList.add("show");
 }
 
 
+// ===============================
 // CALORIE CALCULATOR
+// ===============================
+
 function calculateCalories() {
+
     let age = document.getElementById("age").value;
     let weight = document.getElementById("calWeight").value;
     let height = document.getElementById("calHeight").value;
@@ -64,12 +74,13 @@ function calculateCalories() {
 
     if (gender === "male") {
         bmr = 10 * weight + 6.25 * height - 5 * age + 5;
-    } else {
+    } 
+    else {
         bmr = 10 * weight + 6.25 * height - 5 * age - 161;
     }
 
-    result.innerHTML = 
+    result.innerHTML =
         "Your estimated daily calorie need is " + Math.round(bmr) + " kcal";
 
-    result.style.color = "green";
+    result.style.color = "#2e7d32";
 }
